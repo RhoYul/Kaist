@@ -1,0 +1,25 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PhysicalAI KAIST Platform 관제</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/control.css"></head><body>
+<div id="login" class="login-screen"><div class="login-art"><span class="brandmark">C<span>•</span></span><p class="eyebrow">CONTROL ROOM</p><h1>촬영 PC 들을<br>한 화면에서.</h1><p>작업을 만들고, 촬영 · NAS 저장을 지켜보고,<br>문제가 생긴 저장을 다시 시도하세요.</p></div>
+<form id="login-form" class="login-card"><span class="eyebrow">PHYSICALAI KAIST PLATFORM · 관제</span><h2>관제 화면 접속</h2><p class="muted">이 PC 에서만 열립니다</p><label>관제 비밀번호<input id="password" type="password" required autocomplete="current-password"></label><button class="primary" type="submit">접속하기 →</button><p id="login-error" class="error" role="alert"></p><small>비밀번호는 control-config\control.json 의 admin_password 입니다.</small></form></div>
+
+<div id="app" hidden><div class="ctl">
+<header class="ctl-head"><div><p class="eyebrow">PHYSICALAI KAIST PLATFORM / CONTROL</p><h1>관제<span class="title-dot">.</span></h1></div><div class="ctl-head-right"><span id="updated" class="muted"></span><button id="logout" class="text-button">로그아웃 ↗</button></div></header>
+
+<section class="panel"><div class="section-head"><div><h2>촬영 PC</h2><p class="muted">카드를 누르면 아래에 작업 · NAS 저장 · 로그가 나옵니다. 3초마다 갱신.</p></div><div class="head-actions"><span id="local-version" class="muted" title="이 PC(관제 PC)의 코드 버전 — 업데이트하면 촬영 PC 가 이 코드로 바뀝니다"></span><button id="update-all" type="button" hidden>⟳ 모두 업데이트</button><button id="show-add" type="button">＋ 촬영 PC 등록</button></div></div>
+<form id="add-form" class="add-form" hidden><div class="form-grid three"><label>이름<input id="pc-name" maxlength="60" placeholder="예: 촬영실 1번" required></label><label>주소<input id="pc-url" maxlength="200" placeholder="촬영PC이름 또는 IP (예: CAPTURE-01)" required></label><label>서버 토큰<input id="pc-token" type="password" maxlength="200" placeholder="촬영 PC 설치 때 표시된 토큰" required></label></div><div class="actions"><button class="primary" type="submit">연결 확인 후 등록</button><button type="button" class="text-button" id="hide-add">닫기</button></div><p class="fine">포트를 안 쓰면 8766 을 씁니다. 촬영 PC 의 Setup 이 마지막에 보여 준 주소와 토큰을 넣으세요.</p></form>
+<div id="pc-cards" class="pc-cards"></div></section>
+
+<div id="detail" hidden>
+<div class="ctl-grid">
+<section class="panel"><div class="section-head"><h2 id="tasks-title">작업</h2><span class="badge">TASKS</span></div>
+<form id="task-form"><label>작업 이름<input id="task-name" maxlength="100" placeholder="예: blue cloth 접기 · 오전" required></label><div class="form-grid two"><label title="SAM 손 프롬프트 프리셋과 QC 기준">장면 유형<select id="task-scene"><option value="2D">2D · 천 (테이블 위)</option><option value="3D">3D · 들어 올리는 입체물</option><option value="1D">1D · 로프</option></select></label><label>목표 에피소드<input id="task-target" type="number" min="1" value="100"></label></div>
+<fieldset class="object-fields"><legend>RGB-D 처리 물체 정보 <span class="required">*</span></legend><p class="fine">rgbd_episode.json 의 object 로 기록되어 NAS 로 함께 갑니다 (PhysicalAI 와 같은 다섯 칸).</p><label>SAM 프롬프트<input id="task-prompt" maxlength="200" placeholder="blue cloth" required></label><div class="form-grid two"><label>마스크 라벨<input id="task-label" maxlength="100" placeholder="cloth" required></label><label title="납품 metadata 의 object_name">납품 물체 이름<input id="task-object-name" maxlength="200" placeholder="blue cloth" required></label></div><label>상호작용 설명<input id="task-interaction" maxlength="500" placeholder="fold, roll and unfold a blue cloth on a table by hand" required></label></fieldset>
+<button class="primary" type="submit">＋ 작업 만들기</button></form><div id="tasks"></div></section>
+
+<section class="panel"><div class="section-head"><h2>NAS 저장 현황</h2><span id="nas-state" class="badge">NAS</span></div><div id="jobs" class="ctl-jobs"></div></section>
+</div>
+
+<section class="panel"><div class="section-head"><h2>로그</h2><span class="muted" id="log-count"></span></div><div class="log-filter"><input id="log-episode" placeholder="에피소드 ID (예: ep_20261112)" autocomplete="off"><input id="log-q" placeholder="내용 검색" autocomplete="off"><select id="log-level"><option value="">전체 수준</option><option value="info">INFO</option><option value="error">ERROR</option></select><button type="button" id="log-clear" class="text-button">초기화</button></div><div id="logs" class="logs"></div></section>
+</div>
+</div></div>
+<div id="toast" role="status" hidden></div><script src="/static/control.js" defer></script></body></html>

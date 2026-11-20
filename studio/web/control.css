@@ -1,0 +1,34 @@
+.ctl{max-width:1280px;margin:0 auto;padding:28px 24px 60px}
+.ctl-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px}
+.ctl-head h1{margin:0}
+.ctl-head-right{display:flex;gap:12px;align-items:center}
+.pc-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.pc-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.pc-card:hover{border-color:#b9cfc4}
+.pc-card.sel{border-color:var(--green);box-shadow:0 0 0 2px #147d6522}
+.pc-card.off{background:#fbf6f5}
+.pc-card .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pc-card .name{font-weight:800;font-size:15px}
+.pc-card .url{font:11px Consolas,monospace;color:var(--muted)}
+.pc-card dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:10px 0 0;font-size:12px}
+.pc-card dt{color:var(--muted)}
+.pc-card dd{margin:0;font-weight:600}
+.pc-card .err{color:var(--red);font-size:12px;margin-top:8px;word-break:break-word}
+.pc-card .remove{float:right;font-size:11px}
+.head-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.head-actions code,.pc-card code{font-size:11px}
+.pc-card .upd{margin-top:8px;font-size:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pc-card .upd button{padding:3px 10px;font-size:12px}
+.pc-card .upd .msg{color:var(--muted)}
+.pc-card .upd .msg.bad{color:var(--red)}
+.add-form{border:1px dashed var(--line);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.form-grid.three{grid-template-columns:1fr 1.2fr 1.2fr}
+.ctl-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;margin-top:16px}
+.ctl-jobs table{width:100%;border-collapse:collapse;font-size:12px}
+.ctl-jobs th{text-align:left;color:var(--muted);font-weight:600;padding:6px 6px;border-bottom:1px solid var(--line)}
+.ctl-jobs td{padding:7px 6px;border-bottom:1px solid #f1f3f1;vertical-align:top}
+.ctl-jobs code{font-size:11px}
+.ctl-jobs .err{color:var(--red);font-size:11px}
+.bar{height:5px;background:#eef2ef;border-radius:3px;overflow:hidden;margin-top:4px;min-width:60px}
+.bar i{display:block;height:100%;background:var(--green)}
+@media(max-width:900px){.ctl-grid{grid-template-columns:1fr}.form-grid.three{grid-template-columns:1fr}}

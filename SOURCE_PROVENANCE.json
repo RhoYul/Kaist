@@ -1,0 +1,29 @@
+[
+  {
+    "source": "C:/Users/PA20261109001/Desktop/ui_install/api-server/common/Exo_video_data/calibration.py",
+    "file": "studio/vendor/calibration.py",
+    "sha256": "d4c8af923768e22a642d4d71b5d9b864261de3c238aabf5fca4346412a06d74e",
+    "changes": [
+      "Windows portability only: /tmp/calib_debug replaced with tempfile.gettempdir()/capture_studio_calib_debug; no algorithm or thresholds changed."
+    ],
+    "bundled_sha256": "337899bf3e4c9fd437de778485a1f7b697c255a6cc53fb115b53ddb56c6020d1"
+  },
+  {
+    "source": "C:/Users/PA20261109001/Desktop/ui_install/api-server/common/Exo_video_data/capture_qc.py",
+    "file": "studio/vendor/capture_qc.py",
+    "sha256": "390544b8837e5a9876dc257c939c084c65984d6e83704562b6e4b6003fcaeb35",
+    "bundled_sha256": "390544b8837e5a9876dc257c939c084c65984d6e83704562b6e4b6003fcaeb35"
+  },
+  {
+    "source": "C:/Users/PA20261109001/Desktop/ui_install/api-server/common/Exo_video_data/realsense.py",
+    "file": "studio/vendor/realsense.py",
+    "sha256": "5444a3bc7507e78e934cb7b31352923132c68b488f36aad59e05a47bd188243c",
+    "bundled_sha256": "5444a3bc7507e78e934cb7b31352923132c68b488f36aad59e05a47bd188243c"
+  },
+  {
+    "source": "C:/Users/PA20261109001/Desktop/ui_install/api-server/common/Exo_video_data/pipeline/camera.py",
+    "file": "studio/vendor/camera.py",
+    "sha256": "db3a64c23fcb00db659464b84f5cb68b44045962e704d566bcbb02dbc76b4147",
+    "bundled_sha256": "db3a64c23fcb00db659464b84f5cb68b44045962e704d566bcbb02dbc76b4147"
+  }
+]
